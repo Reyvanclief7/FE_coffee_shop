@@ -15,6 +15,16 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
+      <h1 style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      margin: 0,
+      color: "green"
+      }}>
+      LOGIN ANDA BERHASIL
+      </h1>
       <h2>Daftar User</h2>
       <table>
         <thead>

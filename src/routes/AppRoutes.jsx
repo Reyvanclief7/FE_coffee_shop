@@ -6,9 +6,11 @@ import Dashboard from "../pages/Dashboard";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUpPage />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+    <Route path="/" element={<LoginPage />} />
+    <Route path="/login" element={<LoginPage />} /> {/* <-- Tambahkan ini */}
+    <Route path="/signup" element={<SignUpPage />} />
+    <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
+
   );
 }

@@ -1,6 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// Service langsung di sini biar praktis
+const registerUser = async (userData) => {
+  console.log("Mengirim data:", userData); // Optional debug log
+  const response = await fetch("http://localhost:8080/user", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData),
+  });
+
+  if (!response.ok) {
+    throw new Error("Registrasi gagal");
+  }
+
+  return await response.json();
+};
+
 export default function SignUpForm() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -9,19 +25,25 @@ export default function SignUpForm() {
   const [address, setAddress] = useState("");
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
-    console.log("Data sign up:", {
+    const userData = {
       fullName,
       email,
       password,
       phone,
       address,
-    });
+    };
 
-    // Sementara arahkan langsung ke login tanpa koneksi ke backend
-    navigate("/login");
+    try {
+      await registerUser(userData);
+      alert("Registrasi berhasil! Silakan login.");
+      navigate("/login");
+    } catch (error) {
+      console.error("Gagal registrasi:", error.message);
+      alert("Registrasi gagal. Silakan coba lagi.");
+    }
   };
 
   return (
