@@ -23,7 +23,7 @@ export default function LoginForm() {
         console.log("Login berhasil:", data);
         // Simpan token atau data user kalau perlu
         // localStorage.setItem('token', data.token);
-        navigate("/dashboard"); // Arahkan ke dashboard
+        navigate("/homepage"); // Arahkan ke dashboard
       } else {
         alert(data.message || "Login gagal");
       }

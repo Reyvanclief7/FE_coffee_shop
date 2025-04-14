@@ -3,7 +3,7 @@ const BASE_URL = "http://localhost:8080/product";
 export const getAllProducts = async () => {
   try {
     const res = await fetch(BASE_URL, {
-      credentials: "include", // Wajib jika backend pakai allowCredentials(true)
+      credentials: "include",
     });
 
     if (!res.ok) {
