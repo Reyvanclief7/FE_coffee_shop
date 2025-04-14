@@ -14,11 +14,21 @@
 }
 
 .product-form input,
-.product-form textarea {
+.product-form textarea,
+.product-form select {
   padding: 0.75rem;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 1rem;
+  background-color: #f4f7fa;
+}
+
+.product-form select:focus,
+.product-form input:focus,
+.product-form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #fff;
 }
 
 .product-form button {

@@ -5,10 +5,17 @@ import {
   updateProduct,
   deleteProduct,
 } from "../services/productService";
+import {
+  getAllCategories,
+  createCategory,
+} from "../services/categoryService";
 import "../styles/Dashboard.css";
 
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
+
   const [formData, setFormData] = useState({
     id: null,
     name: "",
@@ -17,6 +24,7 @@ export default function Dashboard() {
     price: "",
     stock: "",
     imageUrl: "",
+    category: null,
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -24,12 +32,9 @@ export default function Dashboard() {
   const fetchProducts = async () => {
     try {
       const data = await getAllProducts();
-      console.log("Hasil getAllProducts:", data);
-
       if (Array.isArray(data)) {
         setProducts(data);
       } else {
-        console.warn("Data bukan array:", data);
         setProducts([]);
       }
     } catch (err) {
@@ -37,8 +42,14 @@ export default function Dashboard() {
     }
   };
 
+  const fetchCategories = async () => {
+    const data = await getAllCategories();
+    setCategories(data);
+  };
+
   useEffect(() => {
     fetchProducts();
+    fetchCategories();
   }, []);
 
   const handleInputChange = (e) => {
@@ -64,6 +75,7 @@ export default function Dashboard() {
         price: "",
         stock: "",
         imageUrl: "",
+        category: null,
       });
 
       await fetchProducts();
@@ -81,6 +93,20 @@ export default function Dashboard() {
     if (window.confirm("Yakin ingin menghapus produk ini?")) {
       await deleteProduct(id);
       fetchProducts();
+    }
+  };
+
+  const handleCreateCategory = async () => {
+    if (!categoryName) return;
+
+    const newCategory = await createCategory(categoryName);
+    if (newCategory) {
+      setCategories((prev) => [...prev, newCategory]);
+      setFormData((prev) => ({
+        ...prev,
+        category: newCategory,
+      }));
+      setCategoryName("");
     }
   };
 
@@ -135,6 +161,40 @@ export default function Dashboard() {
           value={formData.imageUrl}
           onChange={handleInputChange}
         />
+
+        {/* Dropdown kategori */}
+        <select
+          name="category"
+          value={formData.category?.id || ""}
+          onChange={(e) => {
+            const selected = categories.find(
+              (cat) => cat.id === Number(e.target.value)
+            );
+            setFormData((prev) => ({ ...prev, category: selected }));
+          }}
+          required
+        >
+          <option value="">Pilih Kategori</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+
+        {/* Tambah kategori */}
+        <div className="add-category">
+          <input
+            type="text"
+            value={categoryName}
+            onChange={(e) => setCategoryName(e.target.value)}
+            placeholder="Tambah kategori baru"
+          />
+          <button type="button" onClick={handleCreateCategory}>
+            + Kategori
+          </button>
+        </div>
+
         <button type="submit">{isEditing ? "Update" : "Tambah"}</button>
       </form>
 
@@ -143,7 +203,14 @@ export default function Dashboard() {
           <div key={product.id} className="product-card">
             <img src={product.imageUrl} alt={product.name} />
             <h3>{product.name}</h3>
-            <p>{product.description}</p>
+            <p>
+              {product.description.split("\n").map((line, index) => (
+                <span key={index}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+            </p>
             <p>
               <strong>Brand:</strong> {product.brand}
             </p>
