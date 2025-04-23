@@ -48,7 +48,7 @@ function Header() {
                 className="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3"
               >
                 <li className="nav-item">
-                  <a className="nav-link me-4 active" href="#billboard">
+                  <a className="nav-link me-4 active" href="/Homepage">
                     Home
                   </a>
                 </li>
@@ -58,7 +58,7 @@ function Header() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link me-4" href="#mobile-products">
+                  <a className="nav-link me-4" href="/Product">
                     Products
                   </a>
                 </li>
