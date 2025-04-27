@@ -31,31 +31,6 @@ function Search() {
               Smart Watches
             </a>
           </li>
-          <li className="cat-list-item">
-            <a href="#" title="Headphones">
-              Headphones
-            </a>
-          </li>
-          <li className="cat-list-item">
-            <a href="#" title="Accessories">
-              Accessories
-            </a>
-          </li>
-          <li className="cat-list-item">
-            <a href="#" title="Monitors">
-              Monitors
-            </a>
-          </li>
-          <li className="cat-list-item">
-            <a href="#" title="Speakers">
-              Speakers
-            </a>
-          </li>
-          <li className="cat-list-item">
-            <a href="#" title="Memory Cards">
-              Memory Cards
-            </a>
-          </li>
         </ul>
       </div>
     </div>

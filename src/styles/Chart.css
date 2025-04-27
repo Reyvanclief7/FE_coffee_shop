@@ -1,0 +1,56 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f8fb; /* Background biru abu-abu muda */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #4a90e2; /* Warna biru modern */
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.table-container {
+  width: 100%;
+  background-color: #ffffff; /* Warna putih untuk latar tabel */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #4a90e2; /* Warna biru untuk header tabel */
+  color: white;
+}
+
+tr:hover {
+  background-color: #e1f1fb; /* Warna biru muda saat hover */
+}
+
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 16px;
+  color: #999;
+}

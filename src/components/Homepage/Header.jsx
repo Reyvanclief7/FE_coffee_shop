@@ -32,7 +32,7 @@ function Header() {
           >
             <div className="offcanvas-header px-4 pb-0">
               <a className="navbar-brand" href="index.html">
-                <img src="/images/main-logo.png" className="logo" />
+                <img src="/images/main-logo.png" className="logo" alt="logo" />
               </a>
               <button
                 type="button"
@@ -148,7 +148,7 @@ function Header() {
                         </a>
                       </li>
                       <li>
-                        <a href="cart.html">
+                        <a href="/chart">
                           <svg className="cart">
                             <use xlinkHref="#cart" />
                           </svg>
