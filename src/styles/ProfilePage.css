@@ -1,0 +1,119 @@
+.profile-page-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  position: relative; /* Untuk memposisikan tombol back secara relatif */
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: #007bff;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: color 0.3s ease;
+  position: absolute; /* Posisikan di luar flow utama */
+  top: 10px;
+  left: 10px;
+}
+
+.back-button:hover {
+  color: #0056b3;
+}
+
+.profile-page-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  margin-top: 40px; /* Sesuaikan margin top agar tidak tertutup tombol back */
+}
+
+/* ... sisa styling CSS Anda ... */
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-item label {
+  width: 100px;
+  font-weight: bold;
+  color: #555;
+  margin-right: 15px;
+}
+
+.info-item span {
+  flex-grow: 1;
+  color: #666;
+  line-height: 1.6;
+}
+
+.info-item input[type="text"],
+.info-item textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.info-item textarea {
+  min-height: 80px;
+}
+
+.profile-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.profile-actions button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-actions button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.profile-actions button:first-child:hover {
+  background-color: #0056b3;
+}
+
+.profile-actions button:nth-child(2) {
+  background-color: #6c757d;
+  color: white;
+}
+
+.profile-actions button:nth-child(2):hover {
+  background-color: #545b62;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}

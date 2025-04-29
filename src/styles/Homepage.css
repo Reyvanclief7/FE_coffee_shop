@@ -591,10 +591,10 @@ h3.cart-title {
 /* 1. Header
 /*----------------------------------------------*/
 .site-header {
-  position: fixed;
   width: 100%;
-  z-index: 10;
+  z-index: 1000;
   transition: background 0.3s ease-out;
+  position: absolute;
 }
 .navbar-toggler svg.navbar-icon {
   width: 50px;
